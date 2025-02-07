@@ -14,7 +14,7 @@ const __dirname = path.dirname(__filename);
 // const assestpath = path.join(__dirname, "public")
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3033;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'))
