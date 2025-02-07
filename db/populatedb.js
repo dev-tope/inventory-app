@@ -6,11 +6,17 @@ import dotenv from "dotenv";
 dotenv.config();
 const { Client } = pg;
 
-const host = process.env.DEV_DATABASE_HOST;
-const user = process.env.DEV_DATABASE_USER;
-const password = process.env.DEV_DATABASE_PASSWORD;
-const port = process.env.DEV_DATABASE_PORT;
-const db_name = process.env.DEV_DATABASE_NAME
+// const host = process.env.DEV_DATABASE_HOST;
+// const user = process.env.DEV_DATABASE_USER;
+// const password = process.env.DEV_DATABASE_PASSWORD;
+// const port = process.env.DEV_DATABASE_PORT;
+// const db_name = process.env.DEV_DATABASE_NAME
+
+// const host = process.env.PGHOST;
+// const db_name = process.env.PGDATABASE;
+// const user = process.env.PGUSER;
+// const password= process.env.PGPASSWORD;
+// const port = process.env.PGPORT
 
 const SQL = `
 CREATE TABLE IF NOT EXISTS movie_categories (
@@ -51,7 +57,8 @@ async function main() {
   console.log("seeding...")
   try {
     const client = new Client({
-      connectionString: `postgresql://${user}:${password}@${host}:${port}/${db_name}`
+      // connectionString: `postgresql://${user}:${password}@${host}:${port}/${db_name}`
+      connectionString: process.env.DATABASE_URL,
     });
     await client.connect();
     await client.query(SQL);
