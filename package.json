@@ -7,6 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node --watch app.js",
+    "start": "node app.js",
     "db": "node db/populatedb.js",
     "dbprod": "node db/populatedb.js postgresql://postgres:xHQSxRKVZkythToCfamUmyRvABQygCna@postgres.railway.internal:5432/railway",
     "build:css" : "npx @tailwindcss/cli -i ./public/input.css -o ./public/output.css --watch"
