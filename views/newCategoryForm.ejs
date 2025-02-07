@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="/img/cinema.svg">
+  <link rel="stylesheet" href="/output.css">
+  <title><%= title %></title>
+</head>
+<body>
+  <%- include("partials/navbar") %>
+  <div class="mt-4 flex justify-center">
+
+    <form action="/categories/new" method="POST" class="w-xl h-64 border-2 border-black rounded-2xl flex flex-col items-center justify-center">
+      <label for="category" class="text-xl font-bold">New category</label>
+      <input type="text" placeholder="drama" name="category" id="category" required class="mt-2 border-2 border-black w-48">
+      <button type="submit" class="px-2 mt-4 bg-black text-white">Add Categotry</button>
+    </form>
+  </div>
+</body>
+</html>

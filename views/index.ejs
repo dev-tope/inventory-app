@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="/img/cinema.svg">
+  <link rel="stylesheet" href="./output.css">
+  <title><%= title %></title>
+  
+</head>
+<body>
+  <%- include("partials/navbar") %>
+  <section class="px-8 mt-4">
+    <div class="flex items-center gap-6.5">
+      <h1 class="text-4xl font-bold"><%= cSection %></h1>
+      <button class="w-32 h-8 bg-black text-white" onclick="redirectToNew()">Add Category</button>
+    </div>
+    <div class="mt-4 flex flex-row flex-wrap gap-4">
+      <% categories.forEach(category => { %>
+        <div class="w-48 h-48 border-2 rounded-lg flex items-center justify-center transition duration-300 ease-in-out hover:scale-105 hover:shadow-lg" id=<%= category.category_id %> onclick="openCategory('<%= category.category %>')" >
+          <%= category.category %>
+        </div>
+      <% }) %>
+    </div>
+  </section>
+  <!-- <section>
+    <div>
+      <h1><%= mSection %></h1>
+      <button>Add New Movie</button>
+    </div>
+    <div class="movies-div">
+      <% movies.forEach(movie => { %>
+        <div class="movie-box" id=<%= movie.movie_id %> onclick="openMovie('<%= movie.movie_id %>')">
+          <%= movie.title %>
+          <%= movie.year %>
+          <%= movie.director %>
+          <%= movie.genre %>
+        </div>
+      <% }) %>
+    </div>
+  </section> -->
+  <script>
+    function redirectToNew() {
+      window.location.href = `categories/new`;
+    }
+
+    function openCategory(category) {
+      window.location.href = `categories/${category}`
+    }
+
+    function openMovie(id) {
+      window.location.href = `movies/${parseInt(id)}`
+    }
+  </script>
+</body>
+</html>

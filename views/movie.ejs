@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="/img/cinema.svg">
+  <link rel="stylesheet" href="/output.css">
+  <title><%= movie.title %></title>
+</head>
+<body>
+  <%- include("partials/navbar") %>
+
+  <div class="px-8 mt-8 flex justify-center">
+
+    <div class="w-2xl px-4 py-4 border-2 border-black rounded-2xl ">
+      <div>
+        <h1 class="font-bold text-2xl"><%= movie.title %></h1>
+        <p><%= movie.genre %></p>
+        <p><%= movie.director %></p>
+        <p><%= movie.year %></p>
+      </div>
+      <div class="w-48 pt-2 flex justify-around gap-3">
+        <button id="<%= movie.movie_id %>" class="bg-black text-white border-2 border-black px-2" onclick="editMovie('<%= movie.movie_id %>')">Edit</button>
+        <form action="/movies/delete/<%= movie.movie_id %>" method="POST">
+          <button type="submit" class="bg-black text-white border-2 border-black px-2">Delete</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+    function editMovie(id) {
+      window.location.href = `/movies/update/${parseInt(id)}` 
+    }
+  </script>
+</body>
+</html>

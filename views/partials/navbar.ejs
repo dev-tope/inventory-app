@@ -1,0 +1,23 @@
+<nav class="grid grid-cols-3 gap-2 border-2 border-b-2">
+  <div class="w-64">
+    <a href="/" class="flex items-center justify-around text-4xl font-bold">
+      <img src="/img/cinema.svg" alt="" class="w-24 h-24">
+      Reelix</a>
+  </div>
+  <div class="grid grid-cols-1 content-center">
+   <ul class="flex flex-row justify-around text-2xl">
+    <li class="hover:underline">
+      <a href="/">Home</a>
+    </li>
+    <li class="hover:underline">
+      <a href="/movies">Movies</a>
+    </li>
+   </ul>
+  </div>
+  <div class="flex flex-col justify-center">
+    <form action="/movies/search" method="POST" class=" flex flex-row justify-center">
+      <input type="text" name="search" id="search" placeholder="Search movies..." class="border-2 border-black">
+      <button type="submit" class="bg-black text-white border-1 border-black w-24 hover:bg-white hover:text-black">Search</button>
+    </form>
+  </div>
+</nav>

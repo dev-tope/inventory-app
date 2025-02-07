@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="/img/cinema.svg">
+  <link rel="stylesheet" href="/output.css">
+  <title>Search</title>
+</head>
+<body>
+  <%- include("partials/navbar") %>
+  <div class="px-8 mt-4">
+    <a href="/movies" class="w-24 h-16 px-2 border-2 border-black bg-black text-white rounded-lg"><< Return to movies</a>
+    <div class="mt-4">
+      <% if(movies.length < 1) { %>
+        <h1>No result found</h1>
+      <% } else {%>
+        <div class="search-movies-container">
+          <h1 class="text-2xl font-bold mb-4">Search Results</h1>
+          <% movies.forEach(movie => { %>
+            <a href="/movies/<%= movie.movie_id %>">
+              <div class="w-48 h-48 px-1 border-2 rounded-2xl flex flex-col items-center justify-center transition duration-300 ease-in-out hover:scale-105 hover:shadow-lg">
+                <h2 class="text-xl font-bold"><%= movie.title %></h2>
+                <p><%= movie.genre %></p>
+                <p><%= movie.director %></p>
+                <p><%= movie.year %></p>
+              </div>
+            </a>
+          <% }) %>
+        </div>
+      <% } %>
+    </div>
+  </div>
+</body>
+</html>

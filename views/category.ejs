@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="/img/cinema.svg">
+  <link rel="stylesheet" href="/output.css">
+  <title><%= category %></title>
+  <style>
+    
+  </style>
+</head>
+<body>
+  <%- include("partials/navbar") %>
+  <div class="px-8 mt-4"">
+    <div>
+      <div class="h-12 flex items-center gap-2.5">
+        <h1 class="text-3xl font-bold"><%= category %></h1> 
+        <button id=<%= category %> class="hover:underline" onclick="redirectToUpdate('<%= category %>')">Edit</button>
+        <form action="/categories/delete/<%= category %>" method="POST">
+          <button id=<%= category %> class= "deleteBtn hover:underline">Delete</button>
+        </form>
+      </div>
+     <button onclick="addNewMovieRedirect()" class="w-40 h-10 px-2 border-1 bg-black text-white transition duration-100 ease-in-out hover:scale-105 rounded-lg">Add New Movie</button>
+    </div>
+   <div class="mt-6 flex flex-wrap gap-4">
+     <% movies.forEach(movie => { %>
+       <div class="w-48 h-48 border-2 border-black rounded-lg flex flex-col items-center justify-center transition duration-300 ease-in-out hover:scale-105 hover:shadow-lg" id=<%= movie.movie_id %> onclick="openMovie('<%= movie.movie_id %>')">
+         <p class="font-bold text-xl"><%= movie.title %></p>
+         <p><%= movie.year %></p>
+         <p><%= movie.director %></p>
+         <p><%= movie.genre %></p>
+       </div>
+     <% }) %>
+   </div>
+  </div>
+
+  <script>
+    function redirectToUpdate(category) {
+      window.location.href = `/categories/update/${category}`
+    }
+
+    function addNewMovieRedirect() {
+      window.location.href = `/movies/new`
+    }
+
+    function openMovie(id) {
+      window.location.href = `/movies/${parseInt(id)}`
+    }
+  </script>
+
+</body>
+</html>

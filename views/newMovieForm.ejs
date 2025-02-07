@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="/img/cinema.svg">
+  <link rel="stylesheet" href="/output.css">
+  <title><%= title %></title>
+</head>
+<body>
+  <%- include("partials/navbar") %>
+  <div class="mt-4 px-8 flex flex-col justify-center">
+
+    <div>
+      <h1 class="font-bold text-xl"><%= title %></h1>  
+    </div>
+    <div class="mt-6">
+      <form action="/movies/new" method="POST" class="">
+        <label for="title">Title</label>
+        <input class="border-2 border-black" type="text" name="title" id="title" required>
+        <label for="genre">Genre</label>
+        <!-- <input type="text" name="genre" id="genre" required> -->
+         <select class="border-2 border-black" name="genre" id="genre">
+          <% categories.forEach(category => { %>
+            <option><%= category.category %></option>
+          <% }); %>
+         </select>
+        <label for="director">Director</label>
+        <input class="border-2 border-black" type="text" name="director" id="director" required>
+        <label for="year">Year</label>
+        <input class="border-2 border-black" type="number" min="1800" max="2026" placeholder="YYYY" name="year" id="year" >
+        <button type="submit" class="bg-black border-2 text-white px-2 py-1 ml-6">Add Movie</button>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>
