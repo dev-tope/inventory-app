@@ -21,15 +21,18 @@ const { Pool } = pg;
 
 export const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-})
+  ssl: {
+    rejectUnauthorized: false
+  }
+});
 
 
-// (async () => {
-//   try {
-//     const result = await pool.query("SELECT NOW()");
-//     console.log("Connected to DB:", result.rows[0]);
-//   } catch (err) {
-//     console.error("Database connection error", err)
-//   }
-// })();
+(async () => {
+  try {
+    const result = await pool.query("SELECT NOW()");
+    console.log("Connected to DB:", result.rows[0]);
+  } catch (err) {
+    console.error("Database connection error", err)
+  }
+})();
 
