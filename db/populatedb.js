@@ -58,7 +58,7 @@ async function main() {
   try {
     const client = new Client({
       // connectionString: `postgresql://${user}:${password}@${host}:${port}/${db_name}`
-      connectionString: process.env.DATABASE_URL,
+      connectionString: process.env.DATABASE_PUBLIC_URL,
     });
     await client.connect();
     await client.query(SQL);

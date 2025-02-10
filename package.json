@@ -9,7 +9,7 @@
     "dev": "node --watch app.js",
     "start": "node app.js",
     "db": "node db/populatedb.js",
-    "dbprod": "node db/populatedb.js postgresql://postgres:xHQSxRKVZkythToCfamUmyRvABQygCna@postgres.railway.internal:5432/railway",
+    "dbprod": "node db/populatedb.js postgresql://postgres:xHQSxRKVZkythToCfamUmyRvABQygCna@junction.proxy.rlwy.net:49332/railway",
     "build:css" : "npx @tailwindcss/cli -i ./public/input.css -o ./public/output.css --watch"
   },
   "keywords": [],
